@@ -1,6 +1,6 @@
 #include "TCPConnectionProvider.h"
 
-void TCPConnectionProvider::establishConnection(const std::string& ip = "127.0.0.1", const std::string& port = "27086") {
+void TCPConnectionProvider::establishConnection(const std::string& ip, const std::string& port) {
 	WSADATA wsaData;
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != NO_ERROR)
