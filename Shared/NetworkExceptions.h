@@ -1,3 +1,4 @@
+#pragma once
 #include <stdexcept>
 
 class ConnectionError : public std::runtime_error {
