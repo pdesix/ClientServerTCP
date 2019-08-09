@@ -123,9 +123,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ConsoleApplication.h" />
     <ClInclude Include="IClientService.h" />
     <ClInclude Include="IDataReader.h" />
     <ClInclude Include="IDataUpdater.h" />
+    <ClInclude Include="IListeningProvider.h" />
+    <ClInclude Include="TCPListeningProvider.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConsoleApplication.cpp" />
+    <ClCompile Include="TCPListeningProvider.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
