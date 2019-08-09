@@ -1,5 +1,7 @@
 #pragma once
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <winsock2.h>
+#include <iostream>
 #include "IConnectionProvider.h"
 #include "User.h"
 

@@ -10,8 +10,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7366D00A-5156-41EE-A7B8-48235CF18D51}"
 	ProjectSection(SolutionItems) = preProject
 		Shared\Data.h = Shared\Data.h
+		Shared\dirent.h = Shared\dirent.h
 		Shared\FileUtilities.h = Shared\FileUtilities.h
 		Shared\NetworkExceptions.h = Shared\NetworkExceptions.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3672703C-6021-44F6-84A3-C82B0E0F6CC4}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\dirent.h = Shared\dirent.h
 	EndProjectSection
 EndProject
 Global

@@ -15,20 +15,14 @@ std::vector<Data> FileDatabase::readData() {
 	return dataList;
 }
 
-int checkData(const std::string& username, const std::string& password) {
+int FileDatabase::checkData(const std::string& username, const std::string& password) {
 	return 1;
 }
 
-void updateData(int id, std::string new_text) {
+void FileDatabase::updateData(int id, std::string new_text) {
 
 }
 
-void updateData(int id, int new_integer) {
+void FileDatabase::updateData(int id, int new_integer) {
 
 }
-
-/*
-	virtual bool checkData(const std::string& username, const std::string& password) override;
-	virtual void updateData(int id, std::string new_text) override;
-	virtual void updateData(int id, int new_number) override;
-*/

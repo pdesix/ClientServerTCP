@@ -9,13 +9,13 @@ class ConsoleApplication final {
 public:
 	static ConsoleApplication& getInstance();
 	void run();
-	void setConnectionProvider(const IConnectionProvider&);
+	void setConnectionProvider(IConnectionProvider& provider);
 
 private:
-	ConsoleApplication() = default;
+	ConsoleApplication() : connector(nullptr) { }
 	ConsoleApplication(const ConsoleApplication&) = delete;
 	ConsoleApplication(ConsoleApplication&&) = delete;
 
-	std::unique_ptr<IConnectionProvider> connector;
+	std::shared_ptr<IConnectionProvider> connector;
 	std::shared_ptr<User> currentUser;
 };

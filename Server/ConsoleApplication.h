@@ -2,6 +2,7 @@
 #include <memory>
 #include <iostream>
 #include "IListeningProvider.h"
+#include "TCPListeningProvider.h"
 
 class ConsoleApplication final {
 public:
@@ -9,7 +10,7 @@ public:
 	void run();
 
 private:
-	ConsoleApplication() = default;
+	ConsoleApplication() : listener{ std::make_unique<TCPListeningProvider>() } { }
 	ConsoleApplication(const ConsoleApplication&) = delete;
 	ConsoleApplication(ConsoleApplication&&) = delete;
 

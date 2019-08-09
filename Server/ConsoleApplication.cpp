@@ -6,5 +6,5 @@ ConsoleApplication& ConsoleApplication::getInstance() {
 }
 
 void ConsoleApplication::run() {
-
+	listener->startListening();
 }

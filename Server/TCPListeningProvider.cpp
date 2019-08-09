@@ -1,5 +1,6 @@
 #include "TCPListeningProvider.h"
 
+
 void TCPListeningProvider::startListening(const std::string& port) {
 		WSADATA wsaData;
 
@@ -31,15 +32,22 @@ void TCPListeningProvider::startListening(const std::string& port) {
 		WSACleanup();
 		throw InitializationError("Error listening on socket.\n");
 	}
-
-	SOCKET acceptSocket = SOCKET_ERROR;
-	printf("Waiting for a client to connect...\n");
-
+	
+	std::cout << "Listening for incoming connections...\n";
 	while (true)
 	{
-		acceptSocket = accept(winSocket, NULL, NULL);
+		SOCKET acceptSocket = SOCKET_ERROR;
+		while (acceptSocket == SOCKET_ERROR)
+		{
+			acceptSocket = accept(winSocket, NULL, NULL);
+		}
+		acceptConnection(acceptSocket);
+		std::cout << "New connection has been initialized...";
 	}
+}
 
-	printf("Client connected.\n");
-	winSocket = acceptSocket;
+void TCPListeningProvider::acceptConnection(SOCKET& socket) {
+	//connectionHandlers.push_back(std::make_shared<TCPClientService>(socket));
+	//std::shared_ptr<TCPClientService> lastThreadHandler{ std::make_shared<TCPClientService>(connectionHandlers[connectionHandlers.size() - 1]) };
+	//connectionThreads.push_back(std::thread(&TCPClientService::handleConnection, lastThreadHandler));
 }

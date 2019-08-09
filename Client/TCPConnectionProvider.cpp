@@ -24,9 +24,18 @@ void TCPConnectionProvider::establishConnection(const std::string& ip, const std
 		WSACleanup();
 		throw ConnectionError(("Error occured while connecting with server: " + ip + ":" + port + ".").c_str());
 	}
+
+	std::cout << "Connection with server has been established succesfully...\n";
 }
 
 void TCPConnectionProvider::closeConnection() {
 	closesocket(winSocket);
 	WSACleanup();
+}
+
+void TCPConnectionProvider::getData() {
+}
+
+std::shared_ptr<User> TCPConnectionProvider::log(std::string username, std::string password) {
+	return nullptr;
 }

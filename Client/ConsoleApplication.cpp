@@ -5,8 +5,8 @@ ConsoleApplication& ConsoleApplication::getInstance() {
 	return app;
 }
 
-void ConsoleApplication::setConnectionProvider(const IConnectionProvider& provider) {
-	connector = std::make_unique<IConnectionProvider>(provider);
+void ConsoleApplication::setConnectionProvider(IConnectionProvider& provider) {
+	connector.reset(&provider);
 }
 
 void ConsoleApplication::run() {
