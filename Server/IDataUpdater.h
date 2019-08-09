@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "../Shared/Data.h"
 
 class IDataUpdater {
 public:

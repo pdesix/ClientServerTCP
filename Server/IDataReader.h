@@ -2,11 +2,12 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include "../Shared/Data.h"
 
 class IDataReader { 
 public:
 	virtual ~IDataReader() = default;
 
 	virtual std::vector<Data> readData() = 0;
-	virtual std::shared_ptr<User> getUserData(std::string username) = 0;
+	virtual int checkData(const std::string& username, const std::string& password) = 0;
 };

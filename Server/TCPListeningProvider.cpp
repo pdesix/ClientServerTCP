@@ -1,4 +1,3 @@
-#pragma once
 #include "TCPListeningProvider.h"
 
 void TCPListeningProvider::startListening(const std::string& port) {
@@ -17,7 +16,7 @@ void TCPListeningProvider::startListening(const std::string& port) {
 	sockaddr_in service;
 	memset(&service, 0, sizeof(service));
 	service.sin_family = AF_INET;
-	service.sin_addr.s_addr = inet_addr("127.0.0.1".c_str());
+	service.sin_addr.s_addr = inet_addr("127.0.0.1");
 	service.sin_port = htons(static_cast<u_short>(std::stoi(port)));
 
 	if (bind(winSocket, (SOCKADDR*)& service, sizeof(service)) == SOCKET_ERROR)
@@ -38,9 +37,9 @@ void TCPListeningProvider::startListening(const std::string& port) {
 
 	while (true)
 	{
-		acceptSocket = accept(mainSocket, NULL, NULL);
+		acceptSocket = accept(winSocket, NULL, NULL);
 	}
 
 	printf("Client connected.\n");
-	mainSocket = acceptSocket;
+	winSocket = acceptSocket;
 }

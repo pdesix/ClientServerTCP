@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleApplication.h" />
+    <ClInclude Include="FileDatabase.h" />
     <ClInclude Include="IClientService.h" />
     <ClInclude Include="IDataReader.h" />
     <ClInclude Include="IDataUpdater.h" />
@@ -132,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication.cpp" />
+    <ClCompile Include="FileDatabase.cpp" />
     <ClCompile Include="TCPListeningProvider.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
