@@ -2,6 +2,6 @@
 
 class IClientService {
 public:
-	virtual void Authorize() = 0;
-	virtual void HandleConnection() = 0;
+	virtual void authorize() = 0;
+	virtual void handleConnection() = 0;
 };
