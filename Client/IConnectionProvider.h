@@ -1,10 +1,12 @@
 #pragma once
 #include <string>
+#include <memory>
+#include "User.h"
 
 class IConnectionProvider {
 public:
-	virtual void Connect() = 0;
-	virtual void Disconnect() = 0;
-	virtual void GetData() = 0;
-	virtual User* Log(std::string username, std::string password) = 0;	
+	virtual void connect() = 0;
+	virtual void disconnect() = 0;
+	virtual void getData() = 0;
+	virtual std::shared_ptr<User> log(std::string username, std::string password) = 0;	
 };
