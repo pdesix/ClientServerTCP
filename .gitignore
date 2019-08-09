@@ -7,3 +7,7 @@
 *.log
 .vs/ClientServerTCP/v16/.suo
 *.db-wal
+*.tlog
+*.idb
+*.pdb
+*.obj

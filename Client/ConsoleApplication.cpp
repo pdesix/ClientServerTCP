@@ -10,14 +10,14 @@ void ConsoleApplication::setConnectionProvider(const IConnectionProvider& provid
 }
 
 void ConsoleApplication::run() {
-	connector->connect();
+	connector->establishConnection();
 
 	std::string name, password;
 	std::cout << "Wprowadz nazwe uzytkownika i haslo, by sie zalogowac: ";
 	std::cin >> name >> password;
 
-	currentUser = connector->Log(name,password);
+	currentUser = connector->log(name,password);
 	std::cout << "Zalogowano pomyslnie!\n";
 
-	connector->disconnect();
+	connector->closeConnection();
 }

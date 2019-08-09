@@ -126,6 +126,13 @@
     <ClInclude Include="ConsoleApplication.h" />
     <ClInclude Include="IConnectionProvider.h" />
     <ClInclude Include="IUserService.h" />
+    <ClInclude Include="TCPConnectionProvider.h" />
+    <ClInclude Include="User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConsoleApplication.cpp" />
+    <ClCompile Include="TCPConnectionProvider.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
