@@ -1,0 +1,9 @@
+
+*.ipch
+*.db-shm
+*.opendb
+*.db
+*.lastbuildstate
+*.log
+.vs/ClientServerTCP/v16/.suo
+*.db-wal
