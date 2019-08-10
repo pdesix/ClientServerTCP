@@ -6,7 +6,7 @@
 class User {
 public:
 	User(const std::shared_ptr<IUserService>&);
-	virtual std::shared_ptr<const IUserService> getServicer() const final;
+	virtual std::shared_ptr<IUserService> getServicer() const final;
 
 protected:
 	std::shared_ptr<IUserService> servicer;

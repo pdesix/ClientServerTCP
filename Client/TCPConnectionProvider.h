@@ -4,6 +4,8 @@
 #include <iostream>
 #include "IConnectionProvider.h"
 #include "User.h"
+#include "IUserService.h"
+#include "StandardUserService.h"
 
 class TCPConnectionProvider : public IConnectionProvider {
 public:

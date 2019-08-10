@@ -43,7 +43,16 @@ std::shared_ptr<User> TCPConnectionProvider::log(std::string username, std::stri
 	send(winSocket, password.c_str(), dataLength, 0);
 	std::int32_t responseCode;
 	recv(winSocket, (char*)& responseCode, sizeof(std::int32_t), 0);
-	std::cout << "Received response code: " << responseCode;
+	//std::cout << "Received response code: " << responseCode;
+	if (responseCode > 0) {
+		std::shared_ptr<IUserService> servicer;
+		switch (responseCode) {
+		case 1:
+			servicer = new StandardUserService();
+			break;
+		}
+		return std::make_shared<User>(servicer);
+	}
 	return nullptr;
 }
 

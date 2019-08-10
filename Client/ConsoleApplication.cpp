@@ -18,4 +18,7 @@ void ConsoleApplication::run() {
 
 	currentUser = connector->log(name,password);
 	std::cout << "Zalogowano pomyslnie!\n";
+
+	currentUser->getServicer()->showMenu();
+	//currentUser->getServicer()->handleInput(1);
 }

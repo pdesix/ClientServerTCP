@@ -23,6 +23,7 @@ void TCPClientService::handleConnection() {
 	std::cout << "Received username: " << username << "; password: " << password << "\n";
 	std::int32_t responseCode{ dataReader->checkUserData(std::string(username), std::string(password)) };
 	send(*winSocketPtr, (char*)& responseCode, sizeof(std::int32_t), 0);
+	std::cout << "Responded: " << responseCode << "\n";
 	delete[] username;
 	delete[] password;
 }
