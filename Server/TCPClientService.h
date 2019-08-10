@@ -1,14 +1,15 @@
 #pragma once
 #include <winsock2.h>
 #include <Ws2tcpip.h>
+#include <memory>
 #include "IClientService.h"
 
 class TCPClientService : public IClientService {
 public:
-	TCPClientService(SOCKET& socket);
+	TCPClientService(std::shared_ptr<SOCKET>& socket);
 	virtual void handleConnection() override;
 
 
 private:
-	SOCKET& winSocket;;
+	std::shared_ptr<SOCKET> winSocketPtr;
 };
