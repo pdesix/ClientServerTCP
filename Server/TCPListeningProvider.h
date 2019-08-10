@@ -13,7 +13,7 @@ public:
 	virtual void startListening(const std::string& port = "26997") override;
 
 private:
-	virtual void acceptConnection(SOCKET& socket);
+	virtual void acceptConnection(std::shared_ptr<SOCKET>& socketPtr);
 	 
 	// I'm going to put here a database connector and try to establish connection between client and server and process basic commands
 	SOCKET winSocket;

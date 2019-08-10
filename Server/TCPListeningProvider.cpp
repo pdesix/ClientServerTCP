@@ -30,24 +30,27 @@ void TCPListeningProvider::startListening(const std::string& port) {
 	{
 		closesocket(winSocket);
 		WSACleanup();
-		throw InitializationError("Error listening on socket.\n");
+		throw InitializationError("Error listening on socket.");
 	}
 	
 	std::cout << "Listening for incoming connections...\n";
 	while (true)
 	{
-		SOCKET acceptSocket = SOCKET_ERROR;
-		while (acceptSocket == SOCKET_ERROR)
+		std::shared_ptr<SOCKET> acceptSocketPtr{ std::make_shared<SOCKET>() };
+		*acceptSocketPtr = SOCKET_ERROR;
+		while (*acceptSocketPtr == SOCKET_ERROR)
 		{
-			acceptSocket = accept(winSocket, NULL, NULL);
+			*acceptSocketPtr = accept(winSocket, NULL, NULL);
 		}
-		acceptConnection(acceptSocket);
-		std::cout << "New connection has been initialized...";
+
+		acceptConnection(acceptSocketPtr);
+		std::cout << "New connection has been initialized...\n";
 	}
 }
 
-void TCPListeningProvider::acceptConnection(SOCKET& socket) {
-	//connectionHandlers.push_back(std::make_shared<TCPClientService>(socket));
-	//std::shared_ptr<TCPClientService> lastThreadHandler{ std::make_shared<TCPClientService>(connectionHandlers[connectionHandlers.size() - 1]) };
-	//connectionThreads.push_back(std::thread(&TCPClientService::handleConnection, lastThreadHandler));
+void TCPListeningProvider::acceptConnection(std::shared_ptr<SOCKET>& socketPtr) {
+	std::shared_ptr<TCPClientService> service = std::make_shared<TCPClientService>(socketPtr);
+	connectionHandlers.push_back(service);
+	std::shared_ptr<IClientService>& lastThreadHandler = connectionHandlers[connectionHandlers.size() - 1];
+	connectionThreads.push_back(std::thread(&IClientService::handleConnection, lastThreadHandler));
 }
