@@ -11,6 +11,7 @@ public:
 	void closeConnection() override;
 	void getData() override;
 	std::shared_ptr<User> log(std::string username, std::string password) override;
+	~TCPConnectionProvider();
 
 private:
 	SOCKET winSocket;

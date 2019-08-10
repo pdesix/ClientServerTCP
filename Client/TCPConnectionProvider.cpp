@@ -39,3 +39,7 @@ void TCPConnectionProvider::getData() {
 std::shared_ptr<User> TCPConnectionProvider::log(std::string username, std::string password) {
 	return nullptr;
 }
+
+TCPConnectionProvider::~TCPConnectionProvider() {
+	closeConnection();
+}
