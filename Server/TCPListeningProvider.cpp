@@ -1,5 +1,8 @@
 #include "TCPListeningProvider.h"
 
+TCPListeningProvider::TCPListeningProvider()
+	: fileDatabase(new FileDatabase()) {
+}
 
 void TCPListeningProvider::startListening(const std::string& port) {
 		WSADATA wsaData;
@@ -49,7 +52,8 @@ void TCPListeningProvider::startListening(const std::string& port) {
 }
 
 void TCPListeningProvider::acceptConnection(std::shared_ptr<SOCKET>& socketPtr) {
-	std::shared_ptr<TCPClientService> service = std::make_shared<TCPClientService>(socketPtr);
+	std::shared_ptr<TCPClientService> service{ std::make_shared<TCPClientService>(socketPtr) };
+	service->setDatabaseConnector(fileDatabase,fileDatabase);
 	connectionHandlers.push_back(service);
 	std::shared_ptr<IClientService>& lastThreadHandler = connectionHandlers[connectionHandlers.size() - 1];
 	connectionThreads.push_back(std::thread(&IClientService::handleConnection, lastThreadHandler));

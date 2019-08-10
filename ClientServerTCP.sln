@@ -11,7 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{7366D0
 	ProjectSection(SolutionItems) = preProject
 		Shared\Data.h = Shared\Data.h
 		Shared\dirent.h = Shared\dirent.h
-		Shared\FileUtilities.h = Shared\FileUtilities.h
 		Shared\NetworkExceptions.h = Shared\NetworkExceptions.h
 	EndProjectSection
 EndProject

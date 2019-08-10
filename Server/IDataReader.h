@@ -9,5 +9,5 @@ public:
 	virtual ~IDataReader() = default;
 
 	virtual std::vector<Data> readData() = 0;
-	virtual int checkData(const std::string& username, const std::string& password) = 0;
+	virtual int checkUserData(const std::string& username, const std::string& password) = 0;
 };

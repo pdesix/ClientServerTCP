@@ -9,7 +9,7 @@ class ConsoleApplication final {
 public:
 	static ConsoleApplication& getInstance();
 	void run();
-	void setConnectionProvider(IConnectionProvider& provider);
+	void setConnectionProvider(std::shared_ptr<IConnectionProvider>& provider);
 
 private:
 	ConsoleApplication() : connector(nullptr) { }

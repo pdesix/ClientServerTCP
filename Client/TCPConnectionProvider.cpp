@@ -24,8 +24,6 @@ void TCPConnectionProvider::establishConnection(const std::string& ip, const std
 		WSACleanup();
 		throw ConnectionError(("Error occured while connecting with server: " + ip + ":" + port + ".").c_str());
 	}
-
-	std::cout << "Connection with server has been established succesfully...\n";
 }
 
 void TCPConnectionProvider::closeConnection() {
@@ -37,6 +35,15 @@ void TCPConnectionProvider::getData() {
 }
 
 std::shared_ptr<User> TCPConnectionProvider::log(std::string username, std::string password) {
+	std::int32_t dataLength = username.length();
+	send(winSocket, (char*)& dataLength, sizeof(std::int32_t), 0);
+	send(winSocket, username.c_str(), dataLength, 0);
+	dataLength = password.length();
+	send(winSocket, (char*) & dataLength, sizeof(std::int32_t), 0);
+	send(winSocket, password.c_str(), dataLength, 0);
+	std::int32_t responseCode;
+	recv(winSocket, (char*)& responseCode, sizeof(std::int32_t), 0);
+	std::cout << "Received response code: " << responseCode;
 	return nullptr;
 }
 

@@ -1,4 +1,6 @@
 #pragma once
+#include "IDataReader.h"
+#include "IDataUpdater.h"
 
 class IClientService {
 public:

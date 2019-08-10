@@ -5,8 +5,8 @@ ConsoleApplication& ConsoleApplication::getInstance() {
 	return app;
 }
 
-void ConsoleApplication::setConnectionProvider(IConnectionProvider& provider) {
-	connector.reset(&provider);
+void ConsoleApplication::setConnectionProvider(std::shared_ptr<IConnectionProvider>& provider) {
+	connector = provider;
 }
 
 void ConsoleApplication::run() {
@@ -18,6 +18,4 @@ void ConsoleApplication::run() {
 
 	currentUser = connector->log(name,password);
 	std::cout << "Zalogowano pomyslnie!\n";
-
-	connector->closeConnection();
 }

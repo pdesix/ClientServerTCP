@@ -2,7 +2,7 @@
 #include "TCPConnectionProvider.h"
 
 int main() {
-	TCPConnectionProvider tcp;
+	std::shared_ptr<IConnectionProvider> tcp(std::make_shared<TCPConnectionProvider>());
 
 	ConsoleApplication& app{ ConsoleApplication::getInstance() };
 	app.setConnectionProvider(tcp);
